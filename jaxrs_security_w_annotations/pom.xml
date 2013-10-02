@@ -27,10 +27,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.wso2.appserver</groupId>
-    <artifactId>jaxrs_basic_security</artifactId>
-    <version>5.2.0</version>
-    <name>JAX-RS Basic Demo</name>
-    <description>JAX-RS Basic Demo</description>
+    <artifactId>jaxrs_security_w_annotations</artifactId>
+    <version>1.0</version>
+    <name>JAX-RS Security Sample</name>
+    <description>JAX-RS Security with basic-auth and Annotation based authorization</description>
     <packaging>war</packaging>
 
     <build>
