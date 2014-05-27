@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:cxf="http://cxf.apache.org/core"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:http="http://cxf.apache.org/transports/http/configuration"
+       xsi:schemaLocation="
+       http://cxf.apache.org/core   http://cxf.apache.org/schemas/core.xsd
+       http://cxf.apache.org/transports/http/configuration            http://cxf.apache.org/schemas/configuration/http-conf.xsd
+       http://www.springframework.org/schema/beans            http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <cxf:bus>
+        <cxf:features>
+            <cxf:logging/>
+        </cxf:features>
+    </cxf:bus>
+
+<bean id="{http://ws.apache.org/axis2}wso2carbon-stsHttpsSoap12Endpoint.sts-client"
+      class="org.apache.cxf.ws.security.trust.STSClient">
+    <constructor-arg ref="cxf"/>
+    <!--<property name="wsdlLocation" value="https://localhost:9443/services/wso2carbon-sts?wsdl"/>-->
+    <property name="Location"
+              value="https://localhost:9443/services/wso2carbon-sts.wso2carbon-stsHttpsSoap12Endpoint"/>
+    <property name="serviceName" value="{http://ws.apache.org/axis2}wso2carbon-sts"/>
+    <property name="endpointName" value="{http://ws.apache.org/axis2}wso2carbon-stsHttpsSoap12Endpoint"/>
+    <property name="soap11" value="false"/>
+
+    <property name="properties">
+        <map>
+            <entry key="ws-security.username" value="admin"/>
+            <!--<entry key="ws-security.password" value="admin"/>-->
+            <entry key="ws-security.callback-handler" value="com.cxf.sts.ClientCallbackHandler"/>
+            <entry key="ws-security.encryption.properties"
+                   value="bearer-client.properties"/>
+            <entry key="ws-security.encryption.username" value="wso2carbon"/>
+            <entry key="ws-security.sts.applies-to"
+                   value="https://localhost:9453/services/echo"/>
+        </map>
+    </property>
+</bean>
+</beans>
