@@ -6,5 +6,6 @@ This project provides samples for common use cases on developing jax-rs and jax-
 Sample 
 1. jaxrs_security_w_annotations - This sample shows how to use the JAX-RS annotations @RolesAllowed, @DenyAll, and @PermitAll to authorize the users in CXF. The webapp is secured with BASIC authentication via web.xml.
 
+2. cxf_sts_client_w_wso2_is - Using CXF STS client with WSO2 Identity Server. 
 
 More samples can be found here - https://svn.wso2.org/repos/wso2/carbon/platform/branches/4.2.0/products/as/5.2.0/modules/samples/product/Jaxws-Jaxrs/
